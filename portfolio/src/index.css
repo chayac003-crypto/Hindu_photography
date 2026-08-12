@@ -1,0 +1,350 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Variables ─────────────────────────────────────────────────────── */
+:root {
+  /* Pure Black base */
+  --char-950: #000000;
+  --char-900: #080808;
+  --char-800: #111111;
+  --char-700: #1a1a1a;
+  --char-600: #222222;
+
+  /* Brick Orange — primary accent */
+  --brick-400: #E8763A;
+  --brick-500: #C95A28;
+  --brick-600: #A84520;
+
+  /* Gold — secondary accent */
+  --gold-500: #C9A227;
+  --gold-400: #ddbb6a;
+
+  /* Text */
+  --ivory: #F5EDE0;
+}
+
+/* ─── Reset ──────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Base Body — Pure Black with ambient ember glow ─────────────────────── */
+body {
+  background-color: #000000;
+  color: var(--ivory);
+  font-family: "Outfit", "Plus Jakarta Sans", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Unique diagonal stripe texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 60px,
+    rgba(201, 90, 40, 0.02) 60px,
+    rgba(201, 90, 40, 0.02) 61px
+  );
+}
+
+/* Ambient ember glow — bottom-left corner */
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -20vh;
+  left: -15vw;
+  width: 60vw;
+  height: 60vh;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(ellipse at center, rgba(201,90,40,0.12) 0%, transparent 65%);
+  animation: ambientPulse 6s ease-in-out infinite;
+}
+
+@keyframes ambientPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.08); }
+}
+
+/* ─── Text Selection ─────────────────────────────────────────────────────── */
+::selection {
+  background: var(--brick-500);
+  color: #000;
+}
+
+/* ─── Custom Scrollbar — Ember Fire ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #E8763A 0%, #C95A28 50%, #7A3720 100%);
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(232,118,58,0.6);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FF8C42 0%, #E8763A 100%);
+  box-shadow: 0 0 14px rgba(255,140,66,0.8);
+}
+
+/* ─── Reveal on Scroll ───────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.38s; }
+.reveal-delay-4 { transition-delay: 0.52s; }
+
+/* ─── Stone-grain Texture Overlay ────────────────────────────────────────── */
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+/* ─── Typography Utilities ───────────────────────────────────────────────── */
+.text-outline {
+  -webkit-text-stroke: 1px rgba(232, 118, 58, 0.6);
+  color: transparent;
+}
+
+.tracking-wide-xl { letter-spacing: 0.32em; }
+
+/* ─── Mask Utilities ─────────────────────────────────────────────────────── */
+.mask-fade-b {
+  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+}
+
+/* ─── Glassmorphism Form Inputs — Black glass + orange focus ─────────────── */
+.input-glass {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(201, 90, 40, 0.22);
+  padding: 14px 16px;
+  font-size: 0.875rem;
+  color: var(--ivory);
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  font-family: "Inter", sans-serif;
+}
+.input-glass::placeholder {
+  color: rgba(245, 237, 224, 0.3);
+}
+.input-glass:focus {
+  border-color: var(--brick-400);
+  background: rgba(10, 5, 0, 0.9);
+  box-shadow:
+    0 0 0 2px rgba(232, 118, 58, 0.15),
+    0 0 24px -4px rgba(232, 118, 58, 0.4);
+}
+.input-glass.error {
+  border-color: var(--brick-500);
+  box-shadow: 0 0 0 2px rgba(201, 90, 40, 0.18);
+}
+
+/* ─── Button Styles ──────────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--brick-500);
+  color: #fff;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+/* Shimmer sweep on hover */
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+.btn-primary:hover::after { left: 150%; }
+.btn-primary:hover {
+  background: var(--brick-400);
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 28px -6px rgba(232, 118, 58, 0.7),
+    0 0 40px -10px rgba(201, 90, 40, 0.5);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border: 1px solid rgba(232, 118, 58, 0.4);
+  color: var(--ivory);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  background: transparent;
+  cursor: pointer;
+}
+.btn-outline:hover {
+  border-color: var(--brick-400);
+  color: var(--brick-400);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px -4px rgba(232, 118, 58, 0.45);
+}
+
+/* ─── Diya / Divider Mark ────────────────────────────────────────────────── */
+.diya-mark {
+  display: inline-block;
+  font-size: 1.1rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 6px rgba(232,118,58,0.9));
+}
+
+/* ─── Section Divider — ember glowing line ───────────────────────────────── */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(201, 90, 40, 0.5) 30%,
+    rgba(232, 118, 58, 0.85) 50%,
+    rgba(201, 90, 40, 0.5) 70%,
+    transparent
+  );
+  position: relative;
+}
+/* Glowing center dot */
+.section-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brick-400);
+  box-shadow: 0 0 14px 5px rgba(232,118,58,0.7);
+}
+
+/* ─── Tooltip ────────────────────────────────────────────────────────────── */
+.tooltip-wrapper { position: relative; }
+.tooltip-wrapper::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(232, 118, 58, 0.4);
+  color: var(--ivory);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  padding: 5px 10px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  font-family: "Inter", sans-serif;
+  text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(201,90,40,0.3);
+}
+.tooltip-wrapper:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ─── Root ───────────────────────────────────────────────────────────────── */
+#root { min-height: 100vh; }
+
+/* ─── Image Lazy-load fade-in ───────────────────────────────────────────── */
+img { transition: opacity 0.4s ease; }
+img[loading="lazy"] { opacity: 0; }
+img[loading="lazy"].loaded, img.loaded { opacity: 1; }
+
+/* ─── Contact icon glow — orange ────────────────────────────────────────── */
+.contact-icon-glow:hover {
+  box-shadow: 0 0 24px -4px rgba(232, 118, 58, 0.8);
+  border-color: rgba(232, 118, 58, 0.5) !important;
+}
+
+/* ─── Gallery masonry columns ────────────────────────────────────────────── */
+.masonry-grid { columns: 2; column-gap: 12px; }
+@media (min-width: 768px)  { .masonry-grid { columns: 3; column-gap: 16px; } }
+@media (min-width: 1280px) { .masonry-grid { columns: 4; column-gap: 16px; } }
+.masonry-item { break-inside: avoid; margin-bottom: 12px; }
+@media (min-width: 768px) { .masonry-item { margin-bottom: 16px; } }
+
+/* ─── Unique: Footer — black + orange top glow ───────────────────────────── */
+footer {
+  background: #000 !important;
+  border-top: 1px solid rgba(201, 90, 40, 0.35) !important;
+  box-shadow: 0 -4px 48px -8px rgba(201, 90, 40, 0.22);
+}
+
+/* ─── Unique: animated brand title orange shimmer ────────────────────────── */
+@keyframes brandShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+/* ─── Unique: Gallery card orange hover glow frame ───────────────────────── */
+.masonry-item > div:hover {
+  box-shadow:
+    0 0 0 1px rgba(232,118,58,0.45),
+    0 8px 32px -8px rgba(201,90,40,0.55),
+    0 0 60px -20px rgba(232,118,58,0.3) !important;
+}

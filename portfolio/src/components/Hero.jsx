@@ -97,16 +97,6 @@ export default function Hero() {
               >
                 BOOK A SESSION
               </a>
-              <a
-                href="#gallery"
-                onClick={scrollTo("#gallery")}
-                className="w-full sm:w-auto px-7 py-3.5 text-xs tracking-[0.2em] font-bold uppercase text-ivory bg-char-900/90 hover:bg-char-800 border border-white/15 rounded-lg shadow-lg backdrop-blur-md transition-all duration-300 flex items-center justify-center gap-2 group"
-              >
-                <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center text-beigegold-400 group-hover:bg-beigegold-500 group-hover:text-char-950 transition-colors">
-                  <Play size={10} fill="currentColor" />
-                </div>
-                <span>VIEW PORTFOLIO</span>
-              </a>
             </div>
 
             {/* Additional info badges */}

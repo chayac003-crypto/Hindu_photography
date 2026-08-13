@@ -9,24 +9,22 @@ export default function ParticleField({ density = 48 }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return undefined;
-
-    // Detect mobile device
+    // Disable particle canvas completely on mobile touch screens for maximum speed & battery life
     const isMobile = window.innerWidth < 768 || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // On reduced motion or mobile, significantly lower particle count to protect CPU/GPU & battery
-    const particleCount = prefersReduced ? 0 : isMobile ? 12 : density;
-    if (particleCount === 0) return undefined;
+    if (isMobile || prefersReduced) return undefined;
+
+    const canvas = canvasRef.current;
+    if (!canvas) return undefined;
 
     const ctx = canvas.getContext("2d");
     let width  = (canvas.width  = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    // Each particle is a tiny glowing mote
+    // Desktop subtle glowing motes
     const particles = Array.from(
-      { length: particleCount },
+      { length: density },
       () => ({
         x:       Math.random() * width,
         y:       Math.random() * height,
@@ -57,24 +55,15 @@ export default function ParticleField({ density = 48 }) {
 
         const a = p.alpha * (0.55 + 0.45 * Math.sin(p.flicker));
 
-        if (isMobile) {
-          // Flat fill on mobile to avoid costly radial gradient allocations 60 FPS
-          ctx.fillStyle = `rgba(${p.hue},${a})`;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fill();
-        } else {
-          // Soft radial glow on desktop
-          const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 2.5);
-          grad.addColorStop(0,   `rgba(${p.hue},${a})`);
-          grad.addColorStop(0.5, `rgba(${p.hue},${a * 0.3})`);
-          grad.addColorStop(1,   `rgba(${p.hue},0)`);
+        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 2.5);
+        grad.addColorStop(0,   `rgba(${p.hue},${a})`);
+        grad.addColorStop(0.5, `rgba(${p.hue},${a * 0.3})`);
+        grad.addColorStop(1,   `rgba(${p.hue},0)`);
 
-          ctx.beginPath();
-          ctx.fillStyle = grad;
-          ctx.arc(p.x, p.y, p.r * 2.5, 0, Math.PI * 2);
-          ctx.fill();
-        }
+        ctx.beginPath();
+        ctx.fillStyle = grad;
+        ctx.arc(p.x, p.y, p.r * 2.5, 0, Math.PI * 2);
+        ctx.fill();
       }
       raf = requestAnimationFrame(render);
     };
@@ -92,11 +81,16 @@ export default function ParticleField({ density = 48 }) {
     };
   }, [density]);
 
+  // Don't render canvas DOM node on mobile
+  if (typeof window !== "undefined" && (window.innerWidth < 768 || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0))) {
+    return null;
+  }
+
   return (
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-[2] mix-blend-screen opacity-50"
+      className="pointer-events-none fixed inset-0 z-[2] mix-blend-screen opacity-50 hidden md:block"
     />
   );
 }

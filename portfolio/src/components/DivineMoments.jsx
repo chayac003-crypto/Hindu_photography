@@ -10,7 +10,7 @@ export default function DivineMoments() {
 
       {/* ── Background temple image ── */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed will-change-transform"
+        className="absolute inset-0 bg-cover bg-center bg-scroll md:bg-fixed"
         style={{ backgroundImage: `url(${siteConfig.divineMoments.image})` }}
         aria-hidden="true"
       />

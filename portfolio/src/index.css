@@ -72,6 +72,17 @@ body {
     -webkit-backdrop-filter: none !important;
     background-color: rgba(10, 8, 6, 0.96) !important;
   }
+  /* Remove heavy SVG feTurbulence grain overlays and pulse animations on mobile */
+  .grain::after, body::before, body::after {
+    display: none !important;
+  }
+  /* Show content instantly on mobile without waiting for reveal scroll triggers */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
 }
 
 /* Unique diagonal stripe texture overlay */

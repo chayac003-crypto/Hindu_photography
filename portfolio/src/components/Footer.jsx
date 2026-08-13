@@ -79,7 +79,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-ivory mb-4 font-body">QUICK LINKS</h4>
             <ul className="space-y-2.5 text-xs text-ivory/60">
-              {["#home", "#about", "#services", "#gallery", "#feedback", "#contact"].map((link) => (
+              {["#home", "#about", "#services", "#gallery", "#contact"].map((link) => (
                 <li key={link}>
                   <a href={link} onClick={scrollTo(link)} className="hover:text-beigegold-400 transition-colors uppercase tracking-wider text-[11px]">
                     {link.replace("#", "")}

@@ -26,17 +26,24 @@ export default function AlbumModal({ album, onClose }) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="fixed inset-0 z-[9999] bg-char-950/98 backdrop-blur-xl overflow-y-auto px-4 pt-28 pb-12 md:px-10 md:pt-32"
+        className="fixed inset-0 z-[9999] bg-char-950/98 backdrop-blur-xl overflow-y-auto px-4 pt-16 pb-12 md:px-10 md:pt-32"
       >
-        {/* Sticky Top Control Bar (Pushed down clear of navbar) */}
-        <div className="sticky top-2 z-[10000] max-w-6xl mx-auto flex items-center justify-start py-3 px-4 mb-8 rounded-2xl bg-char-900 border-2 border-beigegold-500/60 backdrop-blur-2xl shadow-2xl">
+        {/* Sticky Top Control Bar */}
+        <div className="sticky top-3 z-[10000] max-w-6xl mx-auto flex items-center justify-between py-2.5 px-4 mb-6 rounded-xl bg-char-900/95 border border-beigegold-500/50 backdrop-blur-xl shadow-2xl">
           <button
             onClick={onClose}
             aria-label="Go back to website"
-            className="px-5 py-2.5 bg-beigegold-500 hover:bg-beigegold-400 text-char-950 font-bold text-xs tracking-wider uppercase rounded-xl shadow-lg transition-all flex items-center gap-2 font-body transform hover:-translate-y-0.5"
+            className="px-4 py-2 bg-beigegold-500 hover:bg-beigegold-400 text-char-950 font-bold text-xs tracking-wider uppercase rounded-lg shadow-lg transition-all flex items-center gap-1.5 font-body"
             title="Click here to go back to the main website"
           >
-            <span>👈 CLICK HERE TO GO BACK</span>
+            <span>👈 CLOSE & GO BACK</span>
+          </button>
+          <button
+            onClick={onClose}
+            aria-label="Close album"
+            className="p-1.5 text-ivory/70 hover:text-beigegold-400 hover:bg-white/10 rounded-lg transition-colors"
+          >
+            <X size={20} />
           </button>
         </div>
 

@@ -50,7 +50,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen w-full bg-char-950 pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden flex items-center"
+      className="relative min-h-[90vh] sm:min-h-screen w-full bg-char-950 pt-20 pb-12 sm:pt-28 sm:pb-16 md:pt-36 md:pb-24 overflow-hidden flex items-center"
     >
       {/* Ambient background glow */}
       <div
@@ -62,45 +62,45 @@ export default function Hero() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10 w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-10 w-full relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-8 items-center">
 
           {/* ── Left Content Column (LENSCRAFT Layout) ── */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             
             {/* Small Eyebrow Tagline */}
-            <div className="inline-flex items-center gap-2 text-[10px] md:text-xs tracking-[0.3em] font-body uppercase text-ivory/60 mb-4">
-              <span className="w-6 h-px bg-beigegold-500" />
+            <div className="inline-flex items-center gap-2 text-[10px] md:text-xs tracking-[0.25em] font-body uppercase text-ivory/60 mb-3">
+              <span className="w-5 h-px bg-beigegold-500" />
               <span>WE DON'T JUST TAKE PHOTOS.</span>
             </div>
 
             {/* Big Headline + Script Accent Line */}
-            <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-semibold text-ivory tracking-tight leading-[1.08]">
+            <h1 className="font-display text-3xl sm:text-5xl md:text-7xl font-semibold text-ivory tracking-tight leading-[1.1]">
               We Capture <br />
               <span className="text-ivory">Emotions.</span> <br />
-              <span className="font-script text-5xl sm:text-7xl md:text-8xl text-beigegold-400 font-normal block mt-1 leading-none drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
+              <span className="font-script text-4xl sm:text-6xl md:text-8xl text-beigegold-400 font-normal block mt-1 leading-none drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
                 You Live Them.
               </span>
             </h1>
 
             {/* Description Paragraph */}
-            <p className="mt-6 text-sm sm:text-base md:text-lg text-ivory/75 font-body font-light max-w-xl leading-relaxed">
+            <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-ivory/75 font-body font-light max-w-xl leading-relaxed">
               Professional photography services for all your special moments. From sacred temple heritage & grand cultural festivals to portraits and pre-weddings — let's create memories that last a lifetime.
             </p>
 
             {/* Action CTA Buttons */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
               <a
                 href="#contact"
                 onClick={scrollTo("#contact")}
-                className="px-8 py-3.5 text-xs tracking-[0.2em] font-bold uppercase text-char-950 bg-beigegold-500 hover:bg-beigegold-400 rounded-lg shadow-xl shadow-beigegold-500/20 transition-all duration-300 transform hover:-translate-y-0.5"
+                className="w-full sm:w-auto px-8 py-3.5 text-xs tracking-[0.2em] font-bold uppercase text-char-950 bg-beigegold-500 hover:bg-beigegold-400 rounded-lg shadow-xl shadow-beigegold-500/20 transition-all duration-300 text-center"
               >
                 BOOK A SESSION
               </a>
               <a
                 href="#gallery"
                 onClick={scrollTo("#gallery")}
-                className="px-7 py-3.5 text-xs tracking-[0.2em] font-bold uppercase text-ivory bg-char-900/90 hover:bg-char-800 border border-white/15 rounded-lg shadow-lg backdrop-blur-md transition-all duration-300 flex items-center gap-2 group"
+                className="w-full sm:w-auto px-7 py-3.5 text-xs tracking-[0.2em] font-bold uppercase text-ivory bg-char-900/90 hover:bg-char-800 border border-white/15 rounded-lg shadow-lg backdrop-blur-md transition-all duration-300 flex items-center justify-center gap-2 group"
               >
                 <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center text-beigegold-400 group-hover:bg-beigegold-500 group-hover:text-char-950 transition-colors">
                   <Play size={10} fill="currentColor" />
@@ -110,26 +110,26 @@ export default function Hero() {
             </div>
 
             {/* Additional info badges */}
-            <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-3 gap-6 w-full max-w-lg">
+            <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10 grid grid-cols-3 gap-3 sm:gap-6 w-full max-w-lg">
               <div>
-                <p className="font-display text-2xl md:text-3xl font-bold text-beigegold-400">100+</p>
-                <p className="text-[10px] tracking-wider uppercase text-ivory/50 font-body mt-1">Sacred Shrines</p>
+                <p className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-beigegold-400">100+</p>
+                <p className="text-[9px] sm:text-[10px] tracking-wider uppercase text-ivory/50 font-body mt-0.5">Sacred Shrines</p>
               </div>
               <div>
-                <p className="font-display text-2xl md:text-3xl font-bold text-beigegold-400">500+</p>
-                <p className="text-[10px] tracking-wider uppercase text-ivory/50 font-body mt-1">Stories Captured</p>
+                <p className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-beigegold-400">500+</p>
+                <p className="text-[9px] sm:text-[10px] tracking-wider uppercase text-ivory/50 font-body mt-0.5">Stories Captured</p>
               </div>
               <div>
-                <p className="font-display text-2xl md:text-3xl font-bold text-beigegold-400">1000+</p>
-                <p className="text-[10px] tracking-wider uppercase text-ivory/50 font-body mt-1">Frames Preserved</p>
+                <p className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-beigegold-400">1000+</p>
+                <p className="text-[9px] sm:text-[10px] tracking-wider uppercase text-ivory/50 font-body mt-0.5">Frames Preserved</p>
               </div>
             </div>
 
           </div>
 
           {/* ── Right Image Column (Photographer Showcase + Floating Badge) ── */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-char-900 aspect-[4/5] max-w-md mx-auto">
+          <div className="lg:col-span-5 relative w-full">
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-char-900 aspect-[4/3] sm:aspect-[4/5] max-w-md mx-auto">
               
               {/* Background Cross-Fade Images */}
               <AnimatePresence mode="sync">
@@ -148,21 +148,21 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-t from-char-950 via-char-950/20 to-transparent" />
 
               {/* Active Image Title Tag */}
-              <div className="absolute top-4 left-4 right-4 z-10 flex justify-between items-center">
-                <span className="text-[10px] tracking-[0.2em] uppercase font-bold text-char-950 bg-beigegold-500 px-3 py-1 rounded-full font-body shadow-md">
+              <div className="absolute top-3 left-3 right-3 sm:top-4 sm:left-4 sm:right-4 z-10 flex justify-between items-center">
+                <span className="text-[9px] sm:text-[10px] tracking-[0.2em] uppercase font-bold text-char-950 bg-beigegold-500 px-2.5 py-1 rounded-full font-body shadow-md">
                   FEATURED WORK
                 </span>
-                <span className="text-[10px] tracking-widest uppercase text-ivory/80 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                <span className="text-[9px] sm:text-[10px] tracking-widest uppercase text-ivory/80 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
                   {currentSlide + 1} / {HERO_SLIDES.length}
                 </span>
               </div>
 
               {/* Caption at bottom of image */}
-              <div className="absolute bottom-6 left-6 right-6 z-10">
-                <p className="font-display text-lg text-ivory font-semibold">
+              <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 z-10">
+                <p className="font-display text-base sm:text-lg text-ivory font-semibold leading-snug">
                   {HERO_SLIDES[currentSlide].title}
                 </p>
-                <p className="text-xs text-beigegold-400 font-body mt-1 flex items-center gap-1">
+                <p className="text-[11px] sm:text-xs text-beigegold-400 font-body mt-0.5 flex items-center gap-1">
                   <span>Explore in Portfolio</span>
                   <ChevronRight size={12} />
                 </p>

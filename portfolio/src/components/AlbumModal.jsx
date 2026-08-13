@@ -8,18 +8,17 @@ export default function AlbumModal({ album, onClose }) {
 
   // Lock body scroll when modal is open
   useEffect(() => {
-    if (!album) return;
+    const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = prevOverflow || "";
     };
-  }, [album]);
+  }, []);
 
   if (!album) return null;
 
   return (
-    <AnimatePresence>
-      <motion.div
+    <motion.div
         role="dialog"
         aria-modal="true"
         initial={{ opacity: 0 }}
@@ -120,6 +119,5 @@ export default function AlbumModal({ album, onClose }) {
           />
         )}
       </motion.div>
-    </AnimatePresence>
   );
 }

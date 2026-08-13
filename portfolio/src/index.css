@@ -83,6 +83,10 @@ body {
     transition: none !important;
     will-change: auto !important;
   }
+  /* Prevent mobile keyboard auto-zoom & input scroll lockup */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
 }
 
 /* Unique diagonal stripe texture overlay */

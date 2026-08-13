@@ -110,12 +110,14 @@ export default function Gallery() {
       </div>
 
       {/* Album Folder Modal */}
-      {activeAlbum && (
-        <AlbumModal
-          album={activeAlbum}
-          onClose={() => setActiveAlbum(null)}
-        />
-      )}
+      <AnimatePresence>
+        {activeAlbum && (
+          <AlbumModal
+            album={activeAlbum}
+            onClose={() => setActiveAlbum(null)}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Standard Image Lightbox */}
       <Lightbox

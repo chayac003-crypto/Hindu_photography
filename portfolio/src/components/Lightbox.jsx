@@ -15,7 +15,7 @@ export default function Lightbox({ images, activeIndex, onClose, onNavigate }) {
     onNavigate((activeIndex - 1 + images.length) % images.length);
   }, [activeIndex, images.length, onNavigate]);
 
-  // Keyboard + body-scroll lock
+  // Keyboard listener
   useEffect(() => {
     if (!isOpen) return undefined;
     const onKey = (e) => {
@@ -24,10 +24,8 @@ export default function Lightbox({ images, activeIndex, onClose, onNavigate }) {
       if (e.key === "ArrowLeft")  goPrev();
     };
     document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
     };
   }, [isOpen, onClose, goNext, goPrev]);
 

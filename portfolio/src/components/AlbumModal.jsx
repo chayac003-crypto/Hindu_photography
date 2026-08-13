@@ -6,15 +6,6 @@ import Lightbox from "./Lightbox";
 export default function AlbumModal({ album, onClose }) {
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
 
-  // Lock body scroll when modal is open
-  useEffect(() => {
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = prevOverflow || "";
-    };
-  }, []);
-
   if (!album) return null;
 
   return (

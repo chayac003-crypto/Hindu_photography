@@ -42,12 +42,6 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [open]);
-
   const handleNavClick = useCallback((e, href) => {
     e.preventDefault();
     setOpen(false);

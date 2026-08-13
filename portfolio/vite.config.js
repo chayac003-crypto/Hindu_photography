@@ -11,17 +11,4 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5000,
   },
-  build: {
-    target: 'es2015',
-    cssCodeSplit: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom'],
-          'vendor-framer': ['framer-motion'],
-          'vendor-icons': ['lucide-react'],
-        },
-      },
-    },
-  },
 })

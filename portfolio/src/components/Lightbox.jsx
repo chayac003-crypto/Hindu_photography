@@ -104,11 +104,11 @@ export default function Lightbox({ images, activeIndex, onClose, onNavigate }) {
               className="max-w-5xl w-full grid md:grid-cols-[1.4fr_1fr] gap-6 md:gap-10 items-center my-auto pt-6 md:pt-12"
             >
               {/* Image */}
-              <div className="relative overflow-hidden border border-gold-500/20 rounded-xl max-h-[50vh] md:max-h-[75vh] bg-char-900 flex items-center justify-center">
+              <div className="relative overflow-hidden border border-gold-500/20 rounded-xl max-h-[45dvh] md:max-h-[75vh] bg-char-900 flex items-center justify-center">
                 <img
                   src={image.src}
                   alt={`${image.title} — ${image.location}`}
-                  className="w-full h-full object-contain max-h-[50vh] md:max-h-[75vh]"
+                  className="w-full h-full object-contain max-h-[45dvh] md:max-h-[75vh]"
                 />
                 {/* Gold corner accents */}
                 <span className="absolute top-0 left-0 w-6 h-6 border-t border-l border-gold-500/50" />

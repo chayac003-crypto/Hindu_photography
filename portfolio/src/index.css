@@ -89,6 +89,17 @@ body {
   }
 }
 
+/* Landscape mobile orientation optimization for short height screens */
+@media (max-height: 500px) and (orientation: landscape) {
+  section {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+  .min-h-screen {
+    min-height: 100dvh !important;
+  }
+}
+
 /* Unique diagonal stripe texture overlay */
 body::before {
   content: "";

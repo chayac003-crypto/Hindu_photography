@@ -157,22 +157,22 @@ export default function Navbar() {
 
       {/* ── Mobile Full-screen Menu ── */}
       <div
-        className={`lg:hidden fixed inset-0 z-50 bg-char-950/98 grain flex flex-col justify-between p-8 transition-all duration-500 ${
+        className={`lg:hidden fixed inset-0 z-50 bg-char-950/98 grain overflow-y-auto max-h-[100dvh] flex flex-col justify-between p-6 sm:p-8 transition-all duration-500 ${
           open ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         }`}
       >
-        <div className="flex justify-between items-center pt-4">
-          <span className="font-display text-lg tracking-[0.18em] uppercase text-ivory">HINDU PHOTOGRAPHY</span>
+        <div className="flex justify-between items-center pt-2 sm:pt-4">
+          <span className="font-display text-base sm:text-lg tracking-[0.18em] uppercase text-ivory">HINDU PHOTOGRAPHY</span>
         </div>
 
-        <ul className="flex flex-col items-center gap-6 my-auto">
+        <ul className="flex flex-col items-center gap-4 sm:gap-6 my-auto py-6">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`font-display text-2xl tracking-[0.15em] uppercase transition-colors ${
-                  active === link.href.replace("#", "") ? "text-beigegold-400" : "text-ivory/80"
+                className={`font-display text-xl sm:text-2xl tracking-[0.15em] uppercase transition-colors ${
+                  active === link.href.replace("#", "") ? "text-beigegold-400 font-bold" : "text-ivory/80"
                 }`}
               >
                 {link.label}

@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 
 export default function Lightbox({ images, activeIndex, onClose, onNavigate }) {
-  const isOpen       = activeIndex !== null;
+  const isOpen       = activeIndex !== null && activeIndex >= 0 && activeIndex < images.length && Boolean(images[activeIndex]);
   const image        = isOpen ? images[activeIndex] : null;
   const touchStartX  = useRef(null);
 

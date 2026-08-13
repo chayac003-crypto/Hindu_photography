@@ -20,12 +20,18 @@ export default function Gallery() {
     [activeCategory]
   );
 
+  const nonFolderImages = useMemo(
+    () => filtered.filter((img) => !img.isFolder),
+    [filtered]
+  );
+
   const handleCardClick = (index) => {
     const item = filtered[index];
     if (item?.isFolder) {
       setActiveAlbum(item);
     } else {
-      setLightboxIndex(index);
+      const nonFolderIdx = nonFolderImages.findIndex((img) => img.id === item?.id);
+      setLightboxIndex(nonFolderIdx !== -1 ? nonFolderIdx : 0);
     }
   };
 
@@ -113,7 +119,7 @@ export default function Gallery() {
 
       {/* Standard Image Lightbox */}
       <Lightbox
-        images={filtered.filter((item) => !item.isFolder)}
+        images={nonFolderImages}
         activeIndex={lightboxIndex}
         onClose={() => setLightboxIndex(null)}
         onNavigate={setLightboxIndex}

@@ -343,8 +343,12 @@ body::after {
 /* ─── Root ───────────────────────────────────────────────────────────────── */
 #root { min-height: 100vh; }
 
-/* ─── Image Lazy-load fade-in ───────────────────────────────────────────── */
-img { transition: opacity 0.4s ease; }
+/* ─── Image Lazy-load fade-in & responsive image bounds ──────────────────── */
+img, video {
+  max-width: 100%;
+  height: auto;
+  transition: opacity 0.4s ease;
+}
 img[loading="lazy"] { opacity: 0; }
 img[loading="lazy"].loaded, img.loaded { opacity: 1; }
 
@@ -354,11 +358,12 @@ img[loading="lazy"].loaded, img.loaded { opacity: 1; }
   border-color: rgba(232, 118, 58, 0.5) !important;
 }
 
-/* ─── Gallery masonry columns ────────────────────────────────────────────── */
-.masonry-grid { columns: 2; column-gap: 12px; }
+/* ─── Gallery masonry columns — 1 col on mobile, 2 on sm, 3 on md, 4 on xl ─ */
+.masonry-grid { columns: 1; column-gap: 12px; }
+@media (min-width: 640px)  { .masonry-grid { columns: 2; column-gap: 14px; } }
 @media (min-width: 768px)  { .masonry-grid { columns: 3; column-gap: 16px; } }
 @media (min-width: 1280px) { .masonry-grid { columns: 4; column-gap: 16px; } }
-.masonry-item { break-inside: avoid; margin-bottom: 12px; }
+.masonry-item { break-inside: avoid; margin-bottom: 14px; }
 @media (min-width: 768px) { .masonry-item { margin-bottom: 16px; } }
 
 /* ─── Unique: Footer — black + orange top glow ───────────────────────────── */

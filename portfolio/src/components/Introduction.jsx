@@ -93,7 +93,7 @@ export default function Introduction() {
         <div className="lg:col-span-6 reveal reveal-delay-2 order-2 relative">
           
           {/* Top Trust Badge */}
-          <div className="absolute -top-6 left-4 z-30 bg-char-950/95 border border-beigegold-500/40 backdrop-blur-xl px-4 py-2 rounded-full shadow-2xl flex items-center gap-2">
+          <div className="absolute -top-6 left-2 sm:left-4 max-w-[calc(100%-16px)] z-30 bg-char-950/95 border border-beigegold-500/40 backdrop-blur-xl px-3 sm:px-4 py-2 rounded-full shadow-2xl flex items-center gap-1.5 sm:gap-2">
             <div className="flex text-amber-400">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} size={11} fill="currentColor" />

@@ -57,7 +57,7 @@ export default function Services() {
       <div className="max-w-7xl mx-auto">
         
         {/* Dark Container Grid featuring Real Photo Frames */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 bg-char-900/90 border border-white/10 p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-2xl backdrop-blur-xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4 bg-char-900/90 border border-white/10 p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-2xl backdrop-blur-xl">
           {SERVICES_LIST.map((service, idx) => {
             const Icon = service.icon;
             return (

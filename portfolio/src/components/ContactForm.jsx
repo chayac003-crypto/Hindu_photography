@@ -86,7 +86,7 @@ export default function ContactForm() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="relative backdrop-blur-sm bg-char-800/35 border border-brick-500/18 p-6 md:p-10"
+      className="relative backdrop-blur-sm bg-char-800/35 border border-brick-500/18 p-4 sm:p-6 md:p-10"
     >
       {/* Corner accents */}
       <span className="absolute top-0 left-0 w-6 h-6 border-t border-l border-gold-500/30 pointer-events-none" />

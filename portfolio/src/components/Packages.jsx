@@ -33,7 +33,7 @@ export default function Packages() {
       <div className="max-w-7xl mx-auto">
         
         {/* Dark Banner Container (matching LENSCRAFT reference) */}
-        <div className="relative rounded-3xl overflow-hidden border border-white/15 bg-gradient-to-r from-char-900 via-char-950 to-char-900 p-8 md:p-12 shadow-2xl">
+        <div className="relative rounded-3xl overflow-hidden border border-white/15 bg-gradient-to-r from-char-900 via-char-950 to-char-900 p-5 sm:p-8 md:p-12 shadow-2xl">
           
           {/* Background overlay image */}
           <div

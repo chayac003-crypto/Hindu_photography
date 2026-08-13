@@ -141,11 +141,11 @@ export default function Footer() {
           <a
             href="mailto:chayac003@gmail.com"
             title="Contact Chaya C"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-beigegold-500/40 bg-char-900/90 text-ivory hover:border-beigegold-400 hover:bg-beigegold-500/10 transition-all shadow-lg shadow-beigegold-500/10 font-body group"
+            className="inline-flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-xl border border-beigegold-500/40 bg-char-900/90 text-ivory hover:border-beigegold-400 hover:bg-beigegold-500/10 transition-all shadow-lg shadow-beigegold-500/10 font-body group max-w-full text-center"
           >
-            <span className="text-beigegold-400">🎨 Creative Developer:</span>
+            <span className="text-beigegold-400 text-[10px] sm:text-xs">🎨 Creative Developer:</span>
             <span className="font-bold text-ivory group-hover:text-beigegold-300 tracking-widest uppercase font-display text-xs">CHAYA C</span>
-            <span className="text-[10px] text-ivory/50 group-hover:text-beigegold-400 border-l border-white/10 pl-2 ml-1 lowercase font-body font-normal">
+            <span className="text-[10px] text-ivory/50 group-hover:text-beigegold-400 border-t sm:border-t-0 sm:border-l border-white/10 pt-0.5 sm:pt-0 sm:pl-2 sm:ml-1 lowercase font-body font-normal block sm:inline">
               chayac003@gmail.com
             </span>
           </a>

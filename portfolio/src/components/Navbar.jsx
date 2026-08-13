@@ -94,15 +94,16 @@ export default function Navbar() {
             aria-label={`${siteConfig.brandName} — Home`}
           >
             {/* Aperture Lens Icon */}
-            <div className="w-10 h-10 rounded-full border border-beigegold-500/40 bg-char-900 flex items-center justify-center text-beigegold-500 group-hover:bg-beigegold-500 group-hover:text-char-950 transition-all duration-300 shadow-lg shadow-beigegold-500/10">
-              <Camera size={18} />
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-beigegold-500/40 bg-char-900 flex items-center justify-center text-beigegold-500 group-hover:bg-beigegold-500 group-hover:text-char-950 transition-all duration-300 shadow-lg shadow-beigegold-500/10 shrink-0">
+              <Camera size={16} className="sm:hidden" />
+              <Camera size={18} className="hidden sm:block" />
             </div>
 
             <div className="flex flex-col leading-none">
-              <span className="font-display text-lg md:text-xl font-bold tracking-[0.18em] uppercase text-ivory group-hover:text-beigegold-400 transition-colors">
+              <span className="font-display text-sm sm:text-lg md:text-xl font-bold tracking-[0.1em] sm:tracking-[0.18em] uppercase text-ivory group-hover:text-beigegold-400 transition-colors">
                 HINDU PHOTOGRAPHY
               </span>
-              <span className="text-[9px] tracking-[0.35em] text-beigegold-500 uppercase font-body mt-1">
+              <span className="text-[8px] sm:text-[9px] tracking-[0.25em] sm:tracking-[0.35em] text-beigegold-500 uppercase font-body mt-0.5 sm:mt-1">
                 ETERNAL DIVINITY
               </span>
             </div>

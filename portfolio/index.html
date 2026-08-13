@@ -48,6 +48,35 @@
       rel="icon"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0806'/><text y='24' x='4' font-size='22'>🪔</text></svg>"
     />
+    <!-- Anti-Gravity Mobile Touch Unblocker Script -->
+    <script>
+      (function restoreMobileInteractivity() {
+        const style = document.createElement('style');
+        style.innerHTML = `
+          body, html {
+            touch-action: manipulation !important;
+            -webkit-user-select: auto !important;
+            user-select: auto !important;
+          }
+          button, a, input, select, textarea, [onclick], [role="button"], .folder, .nav-item {
+            pointer-events: auto !important;
+            touch-action: manipulation !important;
+            cursor: pointer !important;
+          }
+          .modal-backdrop:not(.active), .overlay:not(.open), .sidebar:not(.visible) {
+            pointer-events: none !important;
+          }
+        `;
+        document.head.appendChild(style);
+
+        document.addEventListener('touchend', function (e) {
+          const target = e.target.closest('button, a, input, [role="button"], .folder');
+          if (target) {
+            target.focus();
+          }
+        }, { passive: true });
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

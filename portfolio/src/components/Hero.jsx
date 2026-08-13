@@ -129,7 +129,10 @@ export default function Hero() {
 
           {/* ── Right Image Column (Photographer Showcase + Floating Badge) ── */}
           <div className="lg:col-span-5 relative w-full">
-            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-char-900 aspect-[4/3] sm:aspect-[4/5] max-w-md mx-auto">
+            <div
+              onClick={scrollTo("#gallery")}
+              className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-char-900 aspect-[4/3] sm:aspect-[4/5] max-w-md mx-auto cursor-pointer group"
+            >
               
               {/* Background Cross-Fade Images */}
               <AnimatePresence mode="sync">
@@ -139,7 +142,7 @@ export default function Hero() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 1.2, ease: "easeInOut" }}
-                  className="absolute inset-0 bg-cover bg-center"
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                   style={{ backgroundImage: `url(${HERO_SLIDES[currentSlide].url})` }}
                 />
               </AnimatePresence>
@@ -159,12 +162,12 @@ export default function Hero() {
 
               {/* Caption at bottom of image */}
               <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 z-10">
-                <p className="font-display text-base sm:text-lg text-ivory font-semibold leading-snug">
+                <p className="font-display text-base sm:text-lg text-ivory font-semibold leading-snug group-hover:text-beigegold-400 transition-colors">
                   {HERO_SLIDES[currentSlide].title}
                 </p>
                 <p className="text-[11px] sm:text-xs text-beigegold-400 font-body mt-0.5 flex items-center gap-1">
                   <span>Explore in Portfolio</span>
-                  <ChevronRight size={12} />
+                  <ChevronRight size={12} className="group-hover:translate-x-1 transition-transform" />
                 </p>
               </div>
             </div>

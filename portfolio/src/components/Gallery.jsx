@@ -68,15 +68,15 @@ export default function Gallery() {
           </p>
         </div>
 
-        {/* ── Category Filter Buttons ── */}
-        <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-12 reveal reveal-delay-1">
+        {/* ── Category Filter Buttons (Horizontal Scroll on Mobile, Centered on Desktop) ── */}
+        <div className="flex items-center gap-2 md:gap-3 overflow-x-auto pb-3 mb-8 md:mb-12 no-scrollbar md:flex-wrap md:justify-center reveal reveal-delay-1">
           {categories.map((cat) => (
             <motion.button
               key={cat.key}
               layout
               onClick={() => setActiveCategory(cat.key)}
               whileTap={{ scale: 0.96 }}
-              className={`px-4 md:px-5 py-2 text-[10px] md:text-[11px] tracking-[0.2em] uppercase border transition-all duration-300 ${
+              className={`px-4 md:px-5 py-2 text-[10px] md:text-[11px] tracking-[0.2em] uppercase border whitespace-nowrap shrink-0 transition-all duration-300 ${
                 activeCategory === cat.key
                   ? "bg-brick-500 border-brick-500 text-char-950 font-semibold shadow-[0_4px_16px_-4px_rgba(191,91,52,0.5)]"
                   : "border-ivory/15 text-ivory/55 hover:border-gold-400/50 hover:text-gold-400"

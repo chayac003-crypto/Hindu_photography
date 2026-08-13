@@ -12,26 +12,29 @@ export default function ParticleField({ density = 48 }) {
     const canvas = canvasRef.current;
     if (!canvas) return undefined;
 
+    // Detect mobile device
+    const isMobile = window.innerWidth < 768 || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // On reduced motion or mobile, significantly lower particle count to protect CPU/GPU & battery
+    const particleCount = prefersReduced ? 0 : isMobile ? 12 : density;
+    if (particleCount === 0) return undefined;
+
     const ctx = canvas.getContext("2d");
     let width  = (canvas.width  = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
     // Each particle is a tiny glowing mote
     const particles = Array.from(
-      { length: prefersReduced ? 0 : density },
+      { length: particleCount },
       () => ({
         x:       Math.random() * width,
         y:       Math.random() * height,
-        r:       Math.random() * 1.8 + 0.3,
-        speed:   Math.random() * 0.22 + 0.03,
-        drift:   (Math.random() - 0.5) * 0.18,
-        // Mix gold and warm-brick hues
+        r:       Math.random() * 1.5 + 0.5,
+        speed:   Math.random() * 0.18 + 0.03,
+        drift:   (Math.random() - 0.5) * 0.15,
         hue:     Math.random() > 0.45 ? "201,162,39" : Math.random() > 0.5 ? "191,91,52" : "220,150,50",
-        alpha:   Math.random() * 0.32 + 0.06,
+        alpha:   Math.random() * 0.3 + 0.05,
         flicker: Math.random() * Math.PI * 2,
         flickerSpeed: Math.random() * 0.012 + 0.006,
       })
@@ -41,33 +44,37 @@ export default function ParticleField({ density = 48 }) {
     const render = () => {
       ctx.clearRect(0, 0, width, height);
       for (const p of particles) {
-        // Drift upward + sideways
         p.y -= p.speed;
         p.x += p.drift;
         p.flicker += p.flickerSpeed;
 
-        // Wrap at top
         if (p.y < -6) {
           p.y = height + 6;
           p.x = Math.random() * width;
         }
-        // Wrap at edges
         if (p.x < -6)        p.x = width + 6;
         if (p.x > width + 6) p.x = -6;
 
-        // Flicker alpha
         const a = p.alpha * (0.55 + 0.45 * Math.sin(p.flicker));
 
-        // Draw a soft radial glow
-        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3);
-        grad.addColorStop(0,   `rgba(${p.hue},${a})`);
-        grad.addColorStop(0.5, `rgba(${p.hue},${a * 0.4})`);
-        grad.addColorStop(1,   `rgba(${p.hue},0)`);
+        if (isMobile) {
+          // Flat fill on mobile to avoid costly radial gradient allocations 60 FPS
+          ctx.fillStyle = `rgba(${p.hue},${a})`;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          // Soft radial glow on desktop
+          const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 2.5);
+          grad.addColorStop(0,   `rgba(${p.hue},${a})`);
+          grad.addColorStop(0.5, `rgba(${p.hue},${a * 0.3})`);
+          grad.addColorStop(1,   `rgba(${p.hue},0)`);
 
-        ctx.beginPath();
-        ctx.fillStyle = grad;
-        ctx.arc(p.x, p.y, p.r * 3, 0, Math.PI * 2);
-        ctx.fill();
+          ctx.beginPath();
+          ctx.fillStyle = grad;
+          ctx.arc(p.x, p.y, p.r * 2.5, 0, Math.PI * 2);
+          ctx.fill();
+        }
       }
       raf = requestAnimationFrame(render);
     };
@@ -89,7 +96,7 @@ export default function ParticleField({ density = 48 }) {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-[2] mix-blend-screen opacity-60"
+      className="pointer-events-none fixed inset-0 z-[2] mix-blend-screen opacity-50"
     />
   );
 }

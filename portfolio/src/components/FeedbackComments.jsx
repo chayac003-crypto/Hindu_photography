@@ -130,7 +130,7 @@ export default function FeedbackComments() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
           {/* ── Cute Input Comment Box Form (Left 5 cols) ── */}
-          <div className="lg:col-span-5 bg-char-900/90 border border-white/15 p-6 sm:p-8 rounded-3xl shadow-2xl backdrop-blur-xl relative">
+          <div className="lg:col-span-5 bg-char-900/90 border border-white/15 p-4 sm:p-6 lg:p-8 rounded-3xl shadow-2xl backdrop-blur-xl relative">
             <div className="flex items-center gap-2 mb-6 border-b border-white/10 pb-4">
               <div className="w-9 h-9 rounded-full bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400">
                 <Heart size={18} className="fill-rose-400" />

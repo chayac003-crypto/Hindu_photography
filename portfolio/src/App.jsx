@@ -1,5 +1,3 @@
-import { useIsMobile } from "./hooks/useIsMobile";
-import MobileApp from "./components/mobile/MobileApp";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
@@ -13,19 +11,11 @@ import Footer from "./components/Footer";
 import ParticleField from "./components/ParticleField";
 
 export default function App() {
-  const isMobile = useIsMobile(768);
-
-  // Dedicated lightweight layout for mobile phones (< 768px)
-  if (isMobile) {
-    return <MobileApp />;
-  }
-
-  // Exact untouched website experience for Desktop & Laptop (>= 768px)
   return (
-    <div className="relative font-body bg-char-950 text-ivory min-h-screen">
+    <div className="relative font-body bg-char-950 text-ivory min-h-screen max-w-full overflow-x-hidden">
       <ParticleField />
       <Navbar />
-      <main className="relative z-10">
+      <main className="relative z-10 max-w-full overflow-x-hidden">
         <Hero />
         <Services />
         <Introduction />

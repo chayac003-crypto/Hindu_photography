@@ -100,7 +100,7 @@ export default function CinematicShowcase() {
       />
 
       {/* Content Container */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center py-10">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center py-10">
 
         {/* Top Floating Sound Ambience Pill */}
         <div className="flex flex-wrap items-center justify-center gap-3 mb-8">

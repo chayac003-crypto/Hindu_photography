@@ -49,7 +49,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" ref={ref} className="relative bg-char-900 grain py-28 md:py-36 px-6 overflow-hidden">
+    <section id="about" ref={ref} className="relative bg-char-900 grain py-16 sm:py-28 md:py-36 px-4 sm:px-6 overflow-hidden">
 
       {/* Subtle warm glow */}
       <div
@@ -60,7 +60,7 @@ export default function About() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 md:gap-24 items-center">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-24 items-center">
 
         {/* ── Portrait ── */}
         <div className="reveal order-2 md:order-1 relative">

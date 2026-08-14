@@ -53,11 +53,11 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="bg-char-950 py-12 px-6 border-y border-white/10 relative z-20">
+    <section id="services" className="bg-char-950 py-10 sm:py-16 px-4 sm:px-6 border-y border-white/10 relative z-20">
       <div className="max-w-7xl mx-auto">
         
         {/* Dark Container Grid featuring Real Photo Frames */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4 bg-char-900/90 border border-white/10 p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-2xl backdrop-blur-xl">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-4 bg-char-900/90 border border-white/10 p-3 sm:p-5 rounded-2xl md:rounded-3xl shadow-2xl backdrop-blur-xl">
           {SERVICES_LIST.map((service, idx) => {
             const Icon = service.icon;
             return (
@@ -69,7 +69,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="group relative flex flex-col justify-end p-4 rounded-xl md:rounded-2xl overflow-hidden border border-white/10 hover:border-beigegold-500/50 transition-all duration-500 h-52 sm:h-60 shadow-lg cursor-pointer"
+                className="group relative flex flex-col justify-end p-3 sm:p-4 rounded-xl md:rounded-2xl overflow-hidden border border-white/10 hover:border-beigegold-500/50 transition-all duration-500 h-44 sm:h-52 md:h-60 shadow-lg cursor-pointer"
               >
                 {/* Background Photo Frame */}
                 <div
@@ -87,14 +87,14 @@ export default function Services() {
 
                 {/* Bottom Text Content */}
                 <div className="relative z-10 text-left">
-                  <h3 className="text-xs font-bold tracking-[0.18em] uppercase text-ivory group-hover:text-beigegold-400 transition-colors font-body drop-shadow-md">
+                  <h3 className="text-[10px] sm:text-xs font-bold tracking-[0.12em] sm:tracking-[0.18em] uppercase text-ivory group-hover:text-beigegold-400 transition-colors font-body drop-shadow-md">
                     {service.title}
                   </h3>
-                  <p className="text-[10px] text-ivory/70 font-body mt-1 leading-tight drop-shadow-sm">
+                  <p className="text-[9px] sm:text-[10px] text-ivory/70 font-body mt-0.5 sm:mt-1 leading-tight drop-shadow-sm truncate">
                     {service.subtitle}
                   </p>
-                  <span className="inline-flex items-center gap-1 text-[8px] tracking-widest text-char-950 bg-beigegold-500 uppercase font-bold mt-2.5 px-2 py-0.5 rounded shadow font-body">
-                    👉 CLICK HERE TO VIEW
+                  <span className="inline-flex items-center gap-1 text-[7px] sm:text-[8px] tracking-wider text-char-950 bg-beigegold-500 uppercase font-bold mt-1.5 sm:mt-2.5 px-1.5 sm:px-2 py-0.5 rounded shadow font-body">
+                    👉 VIEW PHOTOS
                   </span>
                 </div>
               </motion.a>

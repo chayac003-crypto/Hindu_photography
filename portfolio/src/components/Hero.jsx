@@ -88,17 +88,6 @@ export default function Hero() {
               Professional photography services for all your special moments. From sacred temple heritage & grand cultural festivals to portraits and pre-weddings — let's create memories that last a lifetime.
             </p>
 
-            {/* Action CTA Buttons */}
-            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
-              <a
-                href="#contact"
-                onClick={scrollTo("#contact")}
-                className="w-full sm:w-auto px-8 py-3.5 text-xs tracking-[0.2em] font-bold uppercase text-char-950 bg-beigegold-500 hover:bg-beigegold-400 rounded-lg shadow-xl shadow-beigegold-500/20 transition-all duration-300 text-center"
-              >
-                BOOK A SESSION
-              </a>
-            </div>
-
             {/* Additional info badges */}
             <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10 grid grid-cols-3 gap-3 sm:gap-6 w-full max-w-lg">
               <div>

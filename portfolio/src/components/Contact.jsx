@@ -51,7 +51,7 @@ export default function Contact() {
   const links = getLinks(siteConfig.contact);
 
   return (
-    <section id="contact" ref={ref} className="relative bg-char-900 grain py-28 md:py-36 px-6 overflow-hidden">
+    <section id="contact" ref={ref} className="relative bg-char-900 grain py-16 sm:py-28 md:py-36 px-4 sm:px-6 overflow-hidden">
 
       {/* Ambient glow */}
       <div
@@ -66,15 +66,15 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto">
 
         {/* ── Header ── */}
-        <div className="text-center max-w-2xl mx-auto mb-16 reveal">
-          <div className="flex items-center justify-center gap-3 mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16 reveal">
+          <div className="flex items-center justify-center gap-3 mb-3">
             <span className="w-8 h-px bg-gold-500/60" />
             <span className="text-gold-500 text-[10px] tracking-[0.45em] uppercase font-body">
               Get in Touch
             </span>
             <span className="w-8 h-px bg-gold-500/60" />
           </div>
-          <h2 className="font-display text-4xl md:text-5xl text-ivory mt-2">
+          <h2 className="font-display text-2xl sm:text-4xl md:text-5xl text-ivory mt-2">
             Let's Create Something Timeless
           </h2>
           <p className="text-ivory/55 mt-4 font-light text-sm md:text-base font-body leading-relaxed">

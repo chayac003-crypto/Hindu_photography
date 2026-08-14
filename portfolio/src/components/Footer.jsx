@@ -30,7 +30,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-char-950 border-t border-white/10 pt-16 pb-8 px-6 text-ivory font-body relative overflow-hidden">
+    <footer className="bg-char-950 border-t border-white/10 pt-12 sm:pt-16 pb-8 px-4 sm:px-6 text-ivory font-body relative overflow-hidden">
 
       {/* Top Accent Line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-beigegold-500/40 to-transparent" />
@@ -79,7 +79,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-ivory mb-4 font-body">QUICK LINKS</h4>
             <ul className="space-y-2.5 text-xs text-ivory/60">
-              {["#home", "#about", "#services", "#gallery", "#contact"].map((link) => (
+              {["#home", "#about", "#gallery", "#contact"].map((link) => (
                 <li key={link}>
                   <a href={link} onClick={scrollTo(link)} className="hover:text-beigegold-400 transition-colors uppercase tracking-wider text-[11px]">
                     {link.replace("#", "")}
@@ -93,12 +93,12 @@ export default function Footer() {
           <div className="lg:col-span-3">
             <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-ivory mb-4 font-body">SERVICES</h4>
             <ul className="space-y-2.5 text-xs text-ivory/60">
-              <li><a href="#services" onClick={scrollTo("#services")} className="hover:text-beigegold-400 transition-colors">Temple Photography</a></li>
-              <li><a href="#services" onClick={scrollTo("#services")} className="hover:text-beigegold-400 transition-colors">Portrait Photography (Chaya)</a></li>
-              <li><a href="#services" onClick={scrollTo("#services")} className="hover:text-beigegold-400 transition-colors">Events & Jaathre Coverage</a></li>
-              <li><a href="#services" onClick={scrollTo("#services")} className="hover:text-beigegold-400 transition-colors">Divine Alankara Rituals</a></li>
-              <li><a href="#services" onClick={scrollTo("#services")} className="hover:text-beigegold-400 transition-colors">Pre-Wedding Shoots</a></li>
-              <li><a href="#services" onClick={scrollTo("#services")} className="hover:text-beigegold-400 transition-colors">Heritage & Nature Photography</a></li>
+              <li><a href="#gallery" onClick={scrollTo("#gallery")} className="hover:text-beigegold-400 transition-colors">Temple Photography</a></li>
+              <li><a href="#gallery" onClick={scrollTo("#gallery")} className="hover:text-beigegold-400 transition-colors">Portrait Photography (Chaya)</a></li>
+              <li><a href="#gallery" onClick={scrollTo("#gallery")} className="hover:text-beigegold-400 transition-colors">Events & Jaathre Coverage</a></li>
+              <li><a href="#gallery" onClick={scrollTo("#gallery")} className="hover:text-beigegold-400 transition-colors">Divine Alankara Rituals</a></li>
+              <li><a href="#gallery" onClick={scrollTo("#gallery")} className="hover:text-beigegold-400 transition-colors">Pre-Wedding Shoots</a></li>
+              <li><a href="#gallery" onClick={scrollTo("#gallery")} className="hover:text-beigegold-400 transition-colors">Heritage & Nature Photography</a></li>
             </ul>
           </div>
 

@@ -91,13 +91,6 @@ export default function MobileHero() {
         {/* Touch CTA Buttons */}
         <div className="flex flex-col gap-2.5 w-full">
           <a
-            href="#m-contact"
-            onClick={scrollTo("#m-contact")}
-            className="w-full py-3 text-xs tracking-[0.2em] font-bold uppercase text-char-950 bg-beigegold-500 rounded-lg text-center shadow-lg font-body"
-          >
-            BOOK A SESSION
-          </a>
-          <a
             href="#m-gallery"
             onClick={scrollTo("#m-gallery")}
             className="w-full py-3 text-xs tracking-[0.2em] font-bold uppercase text-ivory bg-char-900 border border-white/15 rounded-lg text-center flex items-center justify-center gap-2 font-body"

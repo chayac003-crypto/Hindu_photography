@@ -5,7 +5,6 @@ import siteConfig from "../config";
 const NAV_LINKS = [
   { label: "HOME",      href: "#home" },
   { label: "ABOUT",     href: "#about" },
-  { label: "SERVICES",  href: "#services" },
   { label: "PORTFOLIO", href: "#gallery" },
   { label: "CONTACT",   href: "#contact" },
 ];

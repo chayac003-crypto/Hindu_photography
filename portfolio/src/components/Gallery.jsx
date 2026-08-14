@@ -36,7 +36,7 @@ export default function Gallery() {
   };
 
   return (
-    <section id="gallery" ref={ref} className="relative bg-char-900 grain py-28 md:py-36 px-6">
+    <section id="gallery" ref={ref} className="relative bg-char-900 grain py-16 sm:py-28 md:py-36 px-4 sm:px-6">
       {/* Subtle brick glow bottom-left */}
       <div
         aria-hidden="true"
@@ -50,15 +50,15 @@ export default function Gallery() {
       <div className="max-w-7xl mx-auto">
 
         {/* ── Section Header (LENSCRAFT Style) ── */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 reveal">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-14 reveal">
           <div>
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2 mb-2 sm:mb-3">
               <span className="w-6 h-px bg-beigegold-500" />
               <span className="text-beigegold-500 text-[10px] tracking-[0.3em] uppercase font-bold font-body">
                 OUR PORTFOLIO
               </span>
             </div>
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-semibold text-ivory tracking-tight">
+            <h2 className="font-display text-2xl sm:text-4xl md:text-6xl font-semibold text-ivory tracking-tight">
               Moments We've Captured
             </h2>
           </div>
